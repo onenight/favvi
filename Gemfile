@@ -9,6 +9,22 @@ gem 'mysql2'
 
 gem 'json'
 
+gem "anjlab-bootstrap-rails", :require => "bootstrap-rails"
+
+gem "kaminari", "0.13.0"
+
+gem "devise", "2.0.0"
+
+gem "simple_form", "1.5.2"
+
+gem "populator", "1.0.0"
+
+gem "faker", "1.0.1"
+
+group :production do
+  gem "pg"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
