@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1>Listing brands</h1>
+</div>
+
+<% @brands.each do |brand| %>
+
+    <p>Name:<%= brand.name %></p>
+    <p>Description:<%= brand.description %></p>
+    <p><%= link_to 'Show', brand %> | <%= link_to 'Edit', edit_brand_path(brand) %> | <%= link_to 'Destroy', brand, :confirm => 'Are you sure?', :method => :delete %></p>
+	<hr>
+<% end %>
+
+<br />
+
+<%= link_to 'New Brand', new_brand_path %>

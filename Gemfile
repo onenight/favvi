@@ -15,7 +15,7 @@ gem "kaminari", "0.13.0"
 
 gem "devise", "2.0.0"
 
-gem "simple_form", "1.5.2"
+gem "simple_form", "2.0.0"
 
 gem "populator", "1.0.0"
 

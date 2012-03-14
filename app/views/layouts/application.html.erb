@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Favvi</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+	<meta charset="utf-8">
+  	<title>Favvi</title>
+	  <%= stylesheet_link_tag    "application" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	<meta name="description" content="">
+    <meta name="author" content="">
+	</head>
+  <body>
+  
+  <!-- Navbar
+	==================================================== -->
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="http://favvi.dev">Favvi</a>
+            <ul class="nav pills">
+			  <li><a href="http://favvi.dev/brands">Brand</a></li>
+            </ul>
+			<%#= render :partial => "common/user_nav" %></p>
+        </div>
+      </div>
+	 </div><!--/.navbar -->
+	
+    <div class="container">
+	<% if notice %>
+	  <div class="alert fade in" data-alert="alert">
+	    <a class="close" data-dismiss='alert' href="#">×</a>
+	    <strong>Notice!</strong><%= notice %>
+	  </div>
+	<% end %>
+	  <div class="row-fluid">
+		<div class="span9">
+	<%= yield %>
+		</div>
+		<div class="span3">
+		  <div class="sidebar">
+	<%= yield :sidebar %>
+	<%= yield :sidebar2 %>
+		  </div>
+		</div>
+	</div> <!-- /container -->
 
-<%= yield %>
-
-</body>
+	</br></br></br>
+	<footer class="container">
+      <p align="center">&copy; Bcmic, 2012</p>
+	</footer><!--/.footer -->
+	
+  </body>
 </html>
