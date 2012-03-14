@@ -17,6 +17,8 @@ gem "devise", "2.0.0"
 
 gem "simple_form", "2.0.0"
 
+gem "carrierwave", "0.5.8"
+
 gem "populator", "1.0.0"
 
 gem "faker", "1.0.1"
