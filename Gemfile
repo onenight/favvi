@@ -19,6 +19,8 @@ gem "simple_form", "2.0.0"
 
 gem "carrierwave", "0.5.8"
 
+gem "rmagick", "2.13.1"
+
 gem "populator", "1.0.0"
 
 gem "faker", "1.0.1"

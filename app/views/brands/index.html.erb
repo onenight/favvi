@@ -5,6 +5,7 @@
 <% @brands.each do |brand| %>
 
     <p>Name:<%= brand.name %></p>
+	<p><%= image_tag brand.image.url(:thumb) %></p>
     <p>Description:<%= brand.description %></p>
     <p><%= link_to 'Show', brand %> | <%= link_to 'Edit', edit_brand_path(brand) %> | <%= link_to 'Destroy', brand, :confirm => 'Are you sure?', :method => :delete %></p>
 	<hr>
