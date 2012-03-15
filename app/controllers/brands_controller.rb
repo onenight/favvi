@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_filter :find_brands
+  before_filter :find_sidebar_brands
   # GET /brands
   # GET /brands.json
   def index
@@ -83,7 +83,7 @@ class BrandsController < ApplicationController
   end
   
   protected
-  def find_brands
+  def find_sidebar_brands
     @apparels = Brand.where(:categories => "apparels")
     @accessories = Brand.where(:categories => "accessories")
   end

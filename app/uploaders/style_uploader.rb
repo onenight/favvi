@@ -1,0 +1,2 @@
+class StyleUploader < ImageUploader
+end

@@ -1,0 +1,13 @@
+
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Latest Style</th>
+  </thead>
+  <tdoby>
+  <% @latest_styles.each do |style| %>
+    <tr>
+    <td><%= link_to style.title, style_path(style) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>

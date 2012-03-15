@@ -1,20 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+ <h1><%= @style.title %></h1>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @style.title %>
-</p>
+<p><%= image_tag @style.image.url %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @style.content %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @style.image %>
-</p>
+<p><%= @style.content %></p>
 
 
 <%= link_to 'Edit', edit_style_path(@style) %> |
 <%= link_to 'Back', styles_path %>
+
+<%= content_for :sidebar do %>
+<%= render "cell/sidebar_latest_style" %>
+<% end %>

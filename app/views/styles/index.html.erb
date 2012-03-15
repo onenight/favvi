@@ -1,27 +1,24 @@
-<h1>Listing styles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @styles.each do |style| %>
-  <tr>
-    <td><%= style.title %></td>
-    <td><%= style.content %></td>
-    <td><%= style.image %></td>
-    <td><%= link_to 'Show', style %></td>
-    <td><%= link_to 'Edit', edit_style_path(style) %></td>
-    <td><%= link_to 'Destroy', style, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+    <hr>
+	  <p>
+	<h2><%= link_to style.title, style %></h2>
+	<h6 class="pull-right"><%= style.created_at.strftime("%R %v")%></h6>
+	  </p>
+	<hr>
+	<p><%= image_tag style.image.url %></p>
+    <p><%= style.content.truncate(120) %></p>
+    <p><%= link_to 'Edit', edit_style_path(style) %> |
+    <%= link_to 'Destroy', style, :confirm => 'Are you sure?', :method => :delete %></p>
+
 <% end %>
-</table>
+
 
 <br />
 
 <%= link_to 'New Style', new_style_path %>
+
+<%= content_for :sidebar do %>
+<%= render "cell/sidebar_latest_style" %>
+<% end %>

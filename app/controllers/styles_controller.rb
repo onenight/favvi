@@ -1,4 +1,6 @@
 class StylesController < ApplicationController
+  before_filter :find_sidebar_styles
+  
   # GET /styles
   # GET /styles.json
   def index
@@ -79,5 +81,10 @@ class StylesController < ApplicationController
       format.html { redirect_to styles_url }
       format.json { head :ok }
     end
+  end
+  
+  protected
+  def find_sidebar_styles
+    @latest_styles = Style.order("created_at DESC").limit(10)
   end
 end
