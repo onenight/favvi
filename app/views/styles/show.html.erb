@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @style.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @style.content %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @style.image %>
+</p>
+
+
+<%= link_to 'Edit', edit_style_path(@style) %> |
+<%= link_to 'Back', styles_path %>

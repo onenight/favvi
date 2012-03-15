@@ -1,4 +1,6 @@
 Favvi::Application.routes.draw do
+  resources :styles
+
   devise_for :users
 
   resources :brands
