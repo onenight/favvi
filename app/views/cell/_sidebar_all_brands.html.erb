@@ -1,0 +1,25 @@
+
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Apparels</th>
+  </thead>
+  <tdoby>
+  <% @apparels.each do |apparel| %>
+    <tr>
+    <td><%= link_to apparel.name, brand_path(apparel) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Accessories</th>
+  </thead>
+  <tdoby>
+  <% @accessories.each do |accessories| %>
+    <tr>
+    <td><%= link_to accessories.name, brand_path(accessories) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>

@@ -1,8 +1,9 @@
 class BrandsController < ApplicationController
+  before_filter :find_brands
   # GET /brands
   # GET /brands.json
   def index
-    @brands = Brand.all
+    @first_brand = Brand.first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +80,11 @@ class BrandsController < ApplicationController
       format.html { redirect_to brands_url }
       format.json { head :ok }
     end
+  end
+  
+  protected
+  def find_brands
+    @apparels = Brand.where(:categories => "apparels")
+    @accessories = Brand.where(:categories => "accessories")
   end
 end

@@ -2,6 +2,7 @@
 
 <%= f.input :name, :input_html => { :class => "span6"},
  			:placeholder => "Enter Your Brand Name Here!"%>
+<%= f.input :categories, :collection => [ "apparels", "accessories" ]%>
 <%= f.input :description, :input_html => { :class => "span6"},
 			:placeholder => "Enter Your Brand Description Here!"%>
 <%= f.input :image, :input_html => { :class => "span6"},
