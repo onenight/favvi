@@ -1,5 +1,6 @@
 <div class="page-header">
  <h1><%= @style.title %></h1>
+<h6 class="pull-right"><%= @style.created_at.strftime("%R %v")%></h6>
 </div>
 
 <p><%= image_tag @style.image.url %></p>

@@ -1,4 +1,8 @@
 Favvi::Application.routes.draw do
+  resources :hots
+
+  resources :infos
+
   resources :styles
 
   devise_for :users
