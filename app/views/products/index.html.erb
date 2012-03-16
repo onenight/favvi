@@ -1,27 +1,25 @@
-<h1>Listing products</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="row">
+  <div class="span12 offset1">
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td><%= product.image %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+	<div class="span3">
+    	<hr>
+	  	<p>
+			<h3><%= product.name %></h3>
+	    </p>
+	    <hr>
+	<p><%= image_tag product.image.url(:thumb) %></p>
+    <p>$ <%= product.price %></p>
+    <p><%= link_to 'Edit', edit_product_path(product) %> |
+    <%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></p>
+	</div>
 <% end %>
-</table>
+  </div>
+</div>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= content_for :sidebar do %>
+<%= link_to 'New Style', new_product_path, :class => "btn" %>
+<%= render "cell/sidebar_all_brands" %>
+<% end %>

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :find_sidebar_brands
   # GET /products
   # GET /products.json
   def index
@@ -79,5 +80,10 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url }
       format.json { head :ok }
     end
+  end
+  protected
+  def find_sidebar_brands
+    @apparels = Brand.where(:categories => "apparels")
+    @accessories = Brand.where(:categories => "accessories")
   end
 end
