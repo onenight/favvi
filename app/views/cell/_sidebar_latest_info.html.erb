@@ -1,0 +1,13 @@
+
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Latest Info</th>
+  </thead>
+  <tdoby>
+  <% @latest_infos.each do |info| %>
+    <tr>
+    <td><%= link_to info.title, info_path(info) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>

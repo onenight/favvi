@@ -1,0 +1,2 @@
+class InfoUploader < ImageUploader
+end

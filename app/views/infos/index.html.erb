@@ -1,0 +1,24 @@
+
+<% @infos.each do |info| %>
+
+    <hr>
+	  <p>
+	<h2><%= link_to info.title, info %></h2>
+	<h6 class="pull-right"><%= info.created_at.strftime("%R %v")%></h6>
+	  </p>
+	<hr>
+	<p><%= image_tag info.image.url %></p>
+    <p><%= info.content.truncate(120) %></p>
+    <p><%= link_to 'Edit', edit_info_path(info) %> |
+    <%= link_to 'Destroy', info, :confirm => 'Are you sure?', :method => :delete %></p>
+
+<% end %>
+
+
+<br />
+
+<%= link_to 'New Style', new_info_path %>
+
+<%= content_for :sidebar do %>
+<%= render "cell/sidebar_latest_info" %>
+<% end %>
