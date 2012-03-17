@@ -457,8 +457,8 @@
 		$.fn.lightbox.defaults = {
 		    triggerEvent: "click",
 			allSet: false,
-			fileLoadingImage: 'images/loading.gif',
-			fileBottomNavCloseImage: 'images/closelabel.gif',
+			fileLoadingImage: 'loading.gif',
+			fileBottomNavCloseImage: 'closelabel.gif',
 			overlayOpacity: 0.6,
 			borderSize: 10,
 			imageArray: new Array,
