@@ -46,7 +46,7 @@
 				imageData += '<span id="helpDisplay">' + opts.strings.help + '</span>';
 			}
 
-			imageData += '<a href="javascript://" id="bottomNavClose" title="' + opts.strings.closeTitle + '"><img src="'+opts.fileBottomNavCloseImage+'"></a></div></div></div>';
+			imageData += '<a href="javascript://" id="bottomNavClose" title="' + opts.strings.closeTitle + '"></a></div></div></div>';
 
 			var string;
 
