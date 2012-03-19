@@ -16,10 +16,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def find_brand
-    @brand = Brand.find(params[:brand_id]) || {}
-  end
-
   # GET /products/1
   # GET /products/1.json
   def show

@@ -1,4 +1,6 @@
 Favvi::Application.routes.draw do
+  resources :blogs
+
   resources :products
 
   resources :hots
