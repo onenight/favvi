@@ -3,12 +3,21 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-
+    
+    if params[:brand_id]
+      @products = Product.where(:brand_id => params[:brand_id])
+    else
+      @products = Product.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @products }
     end
+  end
+
+  def find_brand
+    @brand = Brand.find(params[:brand_id]) || {}
   end
 
   # GET /products/1

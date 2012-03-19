@@ -4,9 +4,9 @@
   <th class="well" style="width 200px">Apparels</th>
   </thead>
   <tdoby>
-  <% @apparels.find_each do |apparel| %>
+  <% @apparels.each do |apparel| %>
     <tr>
-    <td><%= link_to apparel.name, product_path(apparel) %></td>
+    <td><%= link_to apparel.name, products_path(:brand_id => apparel.id) %></td>
     </tr>
   <% end %>
   </tdoby>
@@ -18,7 +18,7 @@
   <tdoby>
   <% @accessories.each do |accessories| %>
     <tr>
-    <td><%= link_to accessories.name, brand_path(accessories) %></td>
+    <td><%= link_to accessories.name, products_path(:brand_id => accessories.id) %></td>
     </tr>
   <% end %>
   </tdoby>
