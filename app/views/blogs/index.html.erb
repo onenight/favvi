@@ -1,29 +1,24 @@
-<h1>Listing blogs</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Image</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= blog.image %></td>
-    <td><%= blog.user_id %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+    <hr>
+	  <p>
+	<h2><%= link_to blog.title, blog %></h2>
+	<h6 class="pull-right"><%= blog.created_at.strftime("%R %v")%></h6>
+	  </p>
+	<hr>
+	<p><%= image_tag blog.image.url %></p>
+    <p><%= blog.content.truncate(120) %></p>
+    <p><%= link_to 'Edit', edit_blog_path(blog) %> |
+    <%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></p>
+
 <% end %>
-</table>
+
 
 <br />
 
 <%= link_to 'New Blog', new_blog_path %>
+
+<%= content_for :sidebar do %>
+<%= render "cell/sidebar_latest_blog" %>
+<% end %>

@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_filter :find_sidebar_blogs
   # GET /blogs
   # GET /blogs.json
   def index
@@ -79,5 +80,10 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url }
       format.json { head :ok }
     end
+  end
+  
+  protected
+  def find_sidebar_blogs
+    @latest_blogs = Blog.order("created_at DESC").limit(10)
   end
 end

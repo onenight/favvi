@@ -1,0 +1,13 @@
+
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Latest blog</th>
+  </thead>
+  <tdoby>
+  <% @latest_blogs.each do |blog| %>
+    <tr>
+    <td><%= link_to blog.title, blog_path(blog) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>
