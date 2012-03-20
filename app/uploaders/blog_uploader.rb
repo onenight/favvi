@@ -1,0 +1,2 @@
+class BlogUploader < ImageUploader
+end
