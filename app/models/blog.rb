@@ -3,4 +3,6 @@ class Blog < ActiveRecord::Base
   validates :content, :presence => true
   
   mount_uploader :image, BlogUploader
+  
+  belongs_to :user
 end
