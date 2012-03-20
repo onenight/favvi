@@ -1,0 +1,31 @@
+<h1>Listing angels</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Avatar</th>
+    <th>Banner</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @angels.each do |angel| %>
+  <tr>
+    <td><%= angel.name %></td>
+    <td><%= angel.description %></td>
+    <td><%= angel.avatar %></td>
+    <td><%= angel.banner %></td>
+    <td><%= angel.user_id %></td>
+    <td><%= link_to 'Show', angel %></td>
+    <td><%= link_to 'Edit', edit_angel_path(angel) %></td>
+    <td><%= link_to 'Destroy', angel, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Angel', new_angel_path %>
