@@ -6,7 +6,7 @@
   <tdoby>
   <% @latest_blogs.each do |blog| %>
     <tr>
-    <td><%= link_to blog.title, blog_path(blog) %></td>
+    <td><%= link_to blog.title, angel_blog_path(@angel, blog) %></td>
     </tr>
   <% end %>
   </tdoby>
