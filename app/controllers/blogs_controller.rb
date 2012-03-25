@@ -1,20 +1,16 @@
 class BlogsController < ApplicationController
-  before_filter :find_sidebar_blogs
+  before_filter :find_angel
+  #before_filter :find_sidebar_blogs
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @blogs }
-    end
+    redirect_to angels_path
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.find(params[:id])
+    @blog = @angel.blogs.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +21,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.json
   def new
-    @blog = Blog.new
+    @blog = @angel.blogs.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,22 +31,19 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-    @blog = current_user.blogs.find(params[:id])
+    @blog = @angel.blogs.find(params[:id])
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(params[:blog])
-    @blog.user_id = current_user.id
+    @blog = @angel.blogs.build(params[:blog])
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, :notice => 'Blog was successfully created.' }
-        format.json { render :json => @blog, :status => :created, :location => @blog }
+        format.html { redirect_to angel_blog_path(@angel, @blog), :notice => 'Blog was successfully created.' }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @blog.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -58,15 +51,13 @@ class BlogsController < ApplicationController
   # PUT /blogs/1
   # PUT /blogs/1.json
   def update
-    @blog = current_user.blogs.find(params[:id])
+    @blog = @angel.blogs.find(params[:id])
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
-        format.html { redirect_to @blog, :notice => 'Blog was successfully updated.' }
-        format.json { head :ok }
+        format.html { redirect_to angel_blog_path(@angel, @blog), :notice => 'Blog was successfully updated.' }
       else
         format.html { render :action => "edit" }
-        format.json { render :json => @blog.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,7 +65,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    @blog = current_user.blogs.find(params[:id])
+    @blog = @angel.blogs.find(params[:id])
     @blog.destroy
 
     respond_to do |format|
@@ -84,7 +75,7 @@ class BlogsController < ApplicationController
   end
   
   protected
-  def find_sidebar_blogs
-    @latest_blogs = Blog.order("created_at DESC").limit(10)
+  def find_angel
+    @angel = Angel.find(params[:angel_id])
   end
 end

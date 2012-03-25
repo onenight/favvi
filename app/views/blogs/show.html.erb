@@ -8,10 +8,9 @@
 <p><%= @blog.content %></p>
 
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to 'Edit', edit_angel_blog_path(@angel, @blog) %> |
+<%= link_to 'Back', angel_blogs_path(@angel) %>
 
-<%= content_for :sidebar do %>
-<%= render "cell/sidebar_latest_blog" %>
-<% end %>
-blog
+<%#= content_for :sidebar do %>
+<%#= render "common/sidebar_latest_blog" %>
+<%# end %>

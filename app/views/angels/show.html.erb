@@ -19,6 +19,14 @@
   <b>Banner:</b>
   <%= @angel.banner %>
 </p>
+<% @blogs.each do |blog| %>
+<hr>
+<p>
+  <b>Title:</b>
+  <%= blog.title %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_angel_path(@angel) %> |
-<%= link_to 'Back', angels_path %>
+<%= link_to 'Back', angels_path %> | 
+<%= link_to 'New Blog', new_angel_blog_path(@angel) %>
