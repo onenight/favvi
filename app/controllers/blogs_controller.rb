@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_filter :find_angel
-  #before_filter :find_sidebar_blogs
+  before_filter :find_sidebar_blogs
   # GET /blogs
   # GET /blogs.json
   def index
@@ -69,7 +69,7 @@ class BlogsController < ApplicationController
     @blog.destroy
 
     respond_to do |format|
-      format.html { redirect_to blogs_url }
+      format.html { redirect_to angel_blogs_url(@angel) }
       format.json { head :ok }
     end
   end
@@ -77,5 +77,9 @@ class BlogsController < ApplicationController
   protected
   def find_angel
     @angel = Angel.find(params[:angel_id])
+  end
+  
+  def find_sidebar_blogs
+    @latest_blogs = Blog.order("created_at DESC").limit(10)
   end
 end

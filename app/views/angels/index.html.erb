@@ -5,7 +5,7 @@
 	<div class="span3">
 	  <p><%= link_to (image_tag angel.avatar.url, :size => "300x300"), angel %></p>
 	  <p><h3><%= angel.name %></h3></p>
-		<p><h3><%= angel.description %></h3></p>
+		<p><h5><%= angel.description %></h5></p>
     <p><%= link_to 'Edit', edit_angel_path(angel) %> |
     <%= link_to 'Destroy', angel, :confirm => 'Are you sure?', :method => :delete %></p>
 	</div>
@@ -17,5 +17,5 @@
 
 <%= content_for :sidebar do %>
 <%= link_to 'New Angel', new_angel_path, :class => "btn" %>
-<%#= render "common/sidebar_latest_blog" %>
+<%= render "common/sidebar_latest_blog" %>
 <% end %>

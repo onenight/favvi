@@ -1,5 +1,6 @@
 class AngelsController < ApplicationController
   before_filter :find_sidebar_blogs
+
   # GET /angels
   # GET /angels.json
   def index

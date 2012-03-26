@@ -9,8 +9,8 @@
 
 
 <%= link_to 'Edit', edit_angel_blog_path(@angel, @blog) %> |
-<%= link_to 'Back', angel_blogs_path(@angel) %>
+<%= link_to 'Back', angel_path(@angel) %>
 
-<%#= content_for :sidebar do %>
-<%#= render "common/sidebar_latest_blog" %>
-<%# end %>
+<%= content_for :sidebar do %>
+<%= render "common/sidebar_latest_blog" %>
+<% end %>
