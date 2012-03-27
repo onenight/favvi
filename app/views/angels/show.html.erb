@@ -17,8 +17,7 @@
 
 <%= content_for :sidebar do %>
 <%= link_to 'New Blog', new_angel_blog_path(@angel), :class => "btn" %>
-<%= link_to 'Edit', edit_angel_path(@angel), :class => "btn" %>
-<%= link_to 'Back', angels_path, :class => "btn" %>
+<%= link_to 'Edit-Angel', edit_angel_path(@angel), :class => "btn" %>
 
 <p><%= image_tag(@angel.avatar.url, :size => "300x300") %></p>
 <p><%= @angel.description %></p>
