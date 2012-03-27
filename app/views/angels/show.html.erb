@@ -1,30 +1,26 @@
-<p id="notice"><%= notice %></p>
+<p><%= image_tag(@angel.banner.url, :size => "900x900") %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @angel.name %>
-</p>
+<% @blogs.each do |blog| %>
 
-<p>
-  <b>Description:</b>
-  <%= @angel.description %>
-</p>
+<hr>
+ <p>
+  <h2><%= link_to blog.title, angel_blog_path(@angel, blog) %></h2>
+  <h6 class="pull-right"><%= blog.created_at.strftime("%R %v")%></h6>
+ </p>
+<hr>
+<p><%= image_tag(blog.image.url) %></p>
+<p><%= blog.content.truncate(120) %></p>
+<p><%= link_to 'Edit', edit_angel_blog_path(@angel, blog) %> |
+  <%= link_to 'Destroy', angel_blog_path(@angel, blog), :confirm => 'Are you sure?', :method => :delete %></p>
 
-<p>
-  <b>Avatar:</b>
-  <%= @angel.avatar %>
-</p>
+<% end %>
 
-<p>
-  <b>Banner:</b>
-  <%= @angel.banner %>
-</p>
+<%= content_for :sidebar do %>
+<%= link_to 'New Blog', new_angel_blog_path(@angel), :class => "btn" %>
+<%= link_to 'Edit-Angel', edit_angel_path(@angel), :class => "btn" %>
 
-<p>
-  <b>User:</b>
-  <%= @angel.user_id %>
-</p>
+<p><%= image_tag(@angel.avatar.url, :size => "300x300") %></p>
+<p><%= @angel.description %></p>
 
-
-<%= link_to 'Edit', edit_angel_path(@angel) %> |
-<%= link_to 'Back', angels_path %>
+<%= render "common/sidebar_latest_blog" %>
+<% end %>

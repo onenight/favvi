@@ -5,4 +5,6 @@ class Blog < ActiveRecord::Base
   mount_uploader :image, BlogUploader
   
   belongs_to :user
+  belongs_to :angel
+
 end

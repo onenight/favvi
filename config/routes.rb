@@ -1,7 +1,7 @@
 Favvi::Application.routes.draw do
-  resources :angels
-
-  resources :blogs
+  resources :angels do
+    resources :blogs
+  end
 
   resources :products
 

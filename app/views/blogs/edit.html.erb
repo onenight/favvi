@@ -1,6 +1,7 @@
 <h1>Editing blog</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @blog, :url => angel_blog_path(@angel, @blog), :html => { :multipart => true} do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to 'Back', angel_blogs_path(@angel) %>

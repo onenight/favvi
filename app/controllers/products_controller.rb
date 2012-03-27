@@ -4,11 +4,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     
-    if params[:brand_id]
-      @products = Product.where(:brand_id => params[:brand_id])
-    else
-      @products = Product.all
-    end
+    @products = params[:brand_id] ? Product.where(:brand_id => params[:brand_id]) : Product.all
     
     respond_to do |format|
       format.html # index.html.erb
