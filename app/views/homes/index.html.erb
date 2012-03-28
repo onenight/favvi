@@ -1,0 +1,62 @@
+<div class="span11">
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+			<div class="active item">
+				<%= image_tag @last_info.image.url, :size => "800x800" %>
+			  <div class="carousel-caption">
+				  <h4><%= @last_info.title %></h4>
+					<p><%= link_to @last_info.content, @last_info %></p>
+				</div>
+			</div>		
+	<% @infos.each do |info| %>
+		  <div class="item">
+				<%= image_tag info.image.url, :size => "800x800"%>
+			  <div class="carousel-caption">
+				  <h4><%= info.title%></h4>
+					<p><%= link_to info.content, info %></p>
+				</div>
+			</div>
+	<% end %>
+		</div>
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+</div>
+<div class="span11">
+	<h2>ANGEL</h2><hr>
+	<% @blogs.each do |blog| %>
+	  <div class="span3">
+			<%= link_to (image_tag blog.angel.avatar.url), angel_blog_path(blog.angel_id, blog) %>
+		</div>
+	  <div class="span2">
+			<h3><%= blog.title.truncate(10) %></h3>
+	  	<p><%= blog.content.truncate(20) %></p>
+	  </div>
+	<% end %>
+</div>
+<div class="span11">
+	<br><h2>PRODUCT</h2><hr>
+	<% @products.each do |product| %>
+	  <div class="span3">
+			<%= link_to (image_tag product.image.url), product %>
+		</div>
+	<% end %>
+</div>
+<div class="span11">
+	<h2>STYLE</h2><hr>
+	<% @styles.each do |style| %>
+	  <div class="span3">
+			<%= link_to (image_tag style.image.url), style %>
+		</div>
+	  <div class="span2">
+			<h3><%= style.title.truncate(10) %></h3>
+	  	<p><%= style.content.truncate(20) %></p>
+	  </div>
+	<% end %>
+</div>
+<br />
+
+<%= content_for :sidebar do %>
+
+<%#= render "common/sidebar_all_brands" %>
+<% end %>

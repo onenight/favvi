@@ -14,6 +14,8 @@ Favvi::Application.routes.draw do
   devise_for :users
 
   resources :brands
+  
+  resources :homes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -64,7 +66,7 @@ Favvi::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'brands#index'
+   root :to => 'homes#index'
 
   # See how all your routes lay out with "rake routes"
 
