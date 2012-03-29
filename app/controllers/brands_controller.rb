@@ -4,7 +4,8 @@ class BrandsController < ApplicationController
   # GET /brands.json
   def index
     @first_brand = Brand.first
-
+    @photo = @first_brand.photos
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @brands }
@@ -26,6 +27,7 @@ class BrandsController < ApplicationController
   # GET /brands/new.json
   def new
     @brand = Brand.new
+    @brand.photos.build
 
     respond_to do |format|
       format.html # new.html.erb

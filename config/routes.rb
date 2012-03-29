@@ -13,9 +13,13 @@ Favvi::Application.routes.draw do
 
   devise_for :users
 
-  resources :brands
+  resources :brands do
+    resources :photos
+  end
   
   resources :homes
+  
+  resources :photos
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

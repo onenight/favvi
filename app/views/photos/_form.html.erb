@@ -5,10 +5,7 @@
 <%= f.input :categories, :collection => [ "apparels", "accessories" ]%>
 <%= f.input :description, :input_html => { :class => "span6"},
 			:placeholder => "Enter Your Brand Description Here!"%>
-
-<%= f.simple_fields_for :photos do |photo| %>
-	<%= photo.input :name %>
-<% end %>
+<%#= f.association :photos %>
 
 <%#= f.input :photo, :input_html => { :class => "span6"},
  			:label => "Upload_image" %>
